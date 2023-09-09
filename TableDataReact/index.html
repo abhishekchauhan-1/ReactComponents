@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Table OBject Data</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      function App() {
+        const StudentInfo = [
+          { StudentName: "Honey", Age: 28, marks: 98 },
+          { StudentName: "Abhishek", Age: 28, marks: 98 },
+          { StudentName: "Sunny", Age: 28, marks: 98 },
+        ];
+
+        return (
+          <>
+            <h1>Student Information</h1>
+            <table border="1">
+              <thead>
+                <tr>
+                  <th>Student Name</th>
+                  <th>Age</th>
+                  <th>Marks</th>
+                </tr>
+              </thead>
+              <tbody>
+                {StudentInfo.map((student) => (
+                  <tr>
+                    <td>{student.StudentName}</td>
+                    <td>{student.Age}</td>
+                    <td>{student.marks}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </>
+        );
+      }
+      const rootElement = ReactDOM.createRoot(document.getElementById("root"));
+      rootElement.render(<App />);
+    </script>
+  </body>
+</html>

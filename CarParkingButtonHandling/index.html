@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <title>React App</title>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      // Create handlers to increase and decrease vehicle count here
+
+      let car = 0;
+      let bike = 0;
+      let scooty = 0;
+      let bicycle = 0;
+
+      function handleCarInc(num) {
+        car += num;
+        console.log(car);
+        rootElement.render(<App />);
+      }
+
+      function handleCarDec(num) {
+        if (car <= 0) {
+          return;
+        } else {
+          car -= num;
+        }
+        rootElement.render(<App />);
+      }
+
+      function handleBikeInc(num) {
+        bike += num;
+        console.log(car);
+        rootElement.render(<App />);
+      }
+
+      function handleBikeDec(num) {
+        if (bike <= 0) {
+          return;
+        } else {
+          bike -= num;
+        }
+        rootElement.render(<App />);
+      }
+
+      function handleScootyInc(num) {
+        scooty += num;
+        console.log(car);
+        rootElement.render(<App />);
+      }
+
+      function handleScootyDec(num) {
+        if (scooty <= 0) {
+          return;
+        } else {
+          scooty -= num;
+        }
+        rootElement.render(<App />);
+      }
+
+      function handleBicycleInc(num) {
+        bicycle += num;
+        console.log(car);
+        rootElement.render(<App />);
+      }
+
+      function handleBicycleDec(num) {
+        if (bicycle <= 0) {
+          return;
+        } else {
+          bicycle -= num;
+        }
+        rootElement.render(<App />);
+      }
+
+      const App = () => (
+        <>
+          <p>List of all the vehicles count in the parking.</p>
+          <ol>
+            <li>
+              <p>
+                <b>Car: {car}</b> &emsp;
+                {/* Add increase and decrease count buttons here */}
+                <button onClick={() => handleCarInc(1)}>Increase</button>&nbsp;
+                <button onClick={() => handleCarDec(1)}>Decrease</button>
+              </p>
+            </li>
+            <li>
+              <p>
+                <b>Bike: {bike} </b> &emsp;
+                {/* Add increase and decrease count buttons here */}
+                <button onClick={() => handleBikeInc(1)}>Increase</button>&nbsp;
+                <button onClick={() => handleBikeDec(1)}>Decrease</button>
+              </p>
+            </li>
+            <li>
+              <p>
+                <b>Scooty: {scooty} </b> &emsp;
+                {/* Add increase and decrease count buttons here */}
+                <button onClick={() => handleScootyInc(1)}>Increase</button>
+                &nbsp;
+                <button onClick={() => handleScootyDec(1)}>Decrease</button>
+              </p>
+            </li>
+            <li>
+              <p>
+                <b>Bicycle: {bicycle}</b> &emsp;
+                {/* Add increase and decrease count buttons here */}
+                <button onClick={() => handleBicycleInc(1)}>Increase</button>
+                &nbsp;
+                <button onClick={() => handleBicycleDec(1)}>Decrease</button>
+              </p>
+            </li>
+          </ol>
+        </>
+      );
+
+      const rootElement = ReactDOM.createRoot(document.getElementById("root"));
+      rootElement.render(<App />);
+    </script>
+  </body>
+</html>

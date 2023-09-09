@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Conditional Rendering</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      function App() {
+    
+        const showCars = true;
+
+        if(showCars){
+            return(
+                <CarApp/>
+            )
+        }
+
+        return (
+          <>
+            <h1>Hello React</h1>
+            
+
+            <StudentApp />
+          </>
+        );
+      }
+
+      function CarApp() {
+        const CarDetails = [
+          {
+            CarName: "Audi",
+            CarType: "Sports",
+            CarPrice: "1cr",
+            FuelType: "Petrol",
+          },
+          {
+            CarName: "BMW",
+            CarType: "Sports",
+            CarPrice: "1cr",
+            FuelType: "Petrol",
+          },
+          {
+            CarName: "Kia",
+            CarType: "Sports",
+            CarPrice: "1cr",
+            FuelType: "Petrol",
+          },
+        ];
+
+        return (
+          <>
+            <h1>Car Details</h1>
+            <table border="1">
+              <thead>
+                <tr>
+                  <td>Car Name</td>
+                  <td>Car Type</td>
+                  <td>Car Price</td>
+                  <td>Fuel Type</td>
+                </tr>
+              </thead>
+              <tbody>
+                {CarDetails.map((cars) => (
+                  <tr>
+                    <td>{cars.CarName}</td>
+                    <td>{cars.CarType}</td>
+                    <td>{cars.CarPrice}</td>
+                    <td>{cars.FuelType}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </>
+        );
+      }
+
+      function StudentApp() {
+        const StudentDetails = [
+          {
+            StudentName: "Audi",
+            Class: "Sports",
+            fees: "1cr",
+            Subject: "Petrol",
+          },
+          {
+            StudentName: "BMW",
+            Class: "Sports",
+            fees: "1cr",
+            Subject: "Petrol",
+          },
+          {
+            StudentName: "Kia",
+            Class: "Sports",
+            fees: "1cr",
+            Subject: "Petrol",
+          },
+        ];
+
+        return (
+          <>
+            <h1>Student Details</h1>
+            <table border="1">
+              <thead>
+                <tr>
+                  <td>Student Name</td>
+                  <td>Class</td>
+                  <td>Fees</td>
+                  <td>Subject</td>
+                </tr>
+              </thead>
+              <tbody>
+                {StudentDetails.map((Students) => (
+                  <tr>
+                    <td>{Students.StudentName}</td>
+                    <td>{Students.Class}</td>
+                    <td>{Students.fees}</td>
+                    <td>{Students.Subject}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </>
+        );
+      }
+
+      const rootElement = ReactDOM.createRoot(document.getElementById("root"));
+      rootElement.render(<App />);
+    </script>
+  </body>
+</html>
